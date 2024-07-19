@@ -167,9 +167,14 @@ daprcomponents:
       value: http://schema-registry.kafka:8081
 
      
+###pubsub:
+###  raw: 
+###  format: Avro
+###  route: events3
+
 pubsub:
   raw: 
-  format: Avro
+  format: 
   route: events2
 
 subscriptionId: subscriptionId

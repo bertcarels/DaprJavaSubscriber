@@ -4,6 +4,8 @@ metadata:
   name: {{ include "javadaprchart.fullname" . }}
   labels:
     {{- include "javadaprchart.labels" . | nindent 4 }}
+    app: app0002
+    version: v1
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -11,6 +13,8 @@ spec:
   selector:
     matchLabels:
       {{- include "javadaprchart.selectorLabels" . | nindent 6 }}
+      app: app0002
+      version: v1
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -27,6 +31,8 @@ spec:
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
+        app: app0002
+        version: v1
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
